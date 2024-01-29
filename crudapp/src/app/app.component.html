@@ -1,0 +1,97 @@
+<h1>CRUD Application</h1>
+
+<div class="card">
+  <div class="card-header">
+    <h3>User Registration</h3>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col">
+            <label>Title</label>
+            <div class="form-group col-5">
+              <label class="mb-2" for="">FirstName</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+              />
+            </div>
+            <div class="form-group col-5">
+              <label class="mb-2 mt-2"  for="">LastName</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+              />
+            </div>
+            <div class="form-group col-5">
+              <label  class="mb-2 mt-2" for="">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+              />
+            </div>
+            <div class="row">
+              <div class="form-group col-5">
+                <label class="mb-2 mt-2"  for="">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+              <div class="form-group col-5">
+                <label class="mb-2 mt-2">Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+              <div class="row">
+              <div class="form-group col mt-4">
+                <input
+                type="checkbox"
+                class="form-control text-center form-check-input"
+                formControlName="acceptTerms"
+                id="acceptTerms"
+                />
+                <label class="mt-2" for="acceptTerms">Accept Terms and Conditions</label>
+              </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group text-center px-2 mb-3 mt-4">
+                <button class="btn btn-success me-2">{{buttonText}}</button>
+                <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="card my-12 mx-10">
+  <h3>User List</h3>
+  <table class="table p-12">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let user of users">
+        <th scope="row">1</th>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
